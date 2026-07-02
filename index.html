@@ -3,24 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Site</title>
+    <title>Ensemble Live</title>
     <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #b38f4f; /* Elegant gold tone for classical/early music */
+            --bg: #fafafa;
+            --text: #333;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            max-width: 600px;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Language Switcher Buttons */
+        .lang-switch {
+            margin-top: 10px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 0 5px;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background-color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .container {
+            max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
-            color: #333;
-            background-color: #f9f9f9;
         }
-        h1 {
-            color: #111;
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            color: var(--primary);
+        }
+
+        /* Concert List Styling */
+        .concert-card {
+            background: white;
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .ticket-btn {
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .ticket-btn:hover {
+            background-color: var(--primary);
+        }
+
+        /* Video Responsive Wrapper */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Photo Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* RTL Handling for Hebrew */
+        [lang="he"] {
+            direction: rtl;
+            text-align: right;
+        }
+        
+        [lang="he"] .concert-card {
+            border-left: none;
+            border-right: 4px solid var(--accent);
+        }
+
+        /* Hide elements by default unless targeted */
+        .lang-section {
+            display: none;
+        }
+
+        .visible {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>Welcome to my brand new GitHub Pages website. It is completely free, secure, and under construction!</p>
+
+    <header>
+        <h1 id="header-title">Ensemble Name</h1>
+        <div class="lang-switch">
+            <button class="lang-btn active" onclick="setLanguage('en')">English</button>
+            <button class="lang-btn" onclick="setLanguage('he')">עברית</button>
+        </div>
+    </header>
+
+    <div id="content-en" class="container lang-section visible" lang="en">
+        <section id="about-en">
+            <h2>About the Ensemble</h2>
+            <p>Welcome to our ensemble's page. We are a dedicated group of musicians specializing in bringing vibrant historical and classical repertoires to life. Our performances blend rigorous musicological research with passionate, spontaneous performance energy.</p>
+        </section>
+
+        <section id="concerts-en">
+            <h2>Upcoming Concerts</h2>
+            
+            <div class="concert-card">
+                <div>
+                    <h3>Baroque Masterpieces</h3>
+                    <p><strong>Date:</strong> August 15, 2026 | 20:00</p>
+                    <p><strong>Venue:</strong> Jerusalem Concert Hall</p>
+                </div>
+                <a href="https://www.eventbrite.com" target="_blank" class="ticket-btn">Get Tickets</a>
+            </div>
+
+            <div class="concert-card">
+                <div>
+                    <h3>Chamber Music Evening</h3>
+                    <p><strong>Date:</strong> September 5, 2026 | 19:30</p>
+                    <p><strong>Venue:</strong> Tel Aviv Conservatory</p>
+                </div>
+                <a href="#" class="ticket-btn">Coming Soon</a>
+            </div>
+        </section>
+
+        <section id="media-en">
+            <h2>Videos & Media</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="gallery-en">
+            <h2>Gallery</h2>
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=500" alt="Ensemble performance">
+                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=500" alt="Rehearsal">
+                <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=500" alt="Instruments">
+            </div>
+        </section>
+    </div>
+
+    <div id="content-he" class="container lang-section" lang="he">
+        <section id="about-he">
+            <h2>אודות האנסמבל</h2>
+            <p>ברוכים הבאים לאתר האנסמבל שלנו. אנו קבוצת מוזיקאים המוקדשת לביצוע חי, תוסס ומרגש של רפרטואר היסטורי וקלאסי. ההופעות שלנו משלבות מחקר מוזיקלי מעמיק יחד עם אנרגיית ביצוע ספונטנית ורבת עוצמה.</p>
+        </section>
+
+        <section id="concerts-he">
+            <h2>קונצרטים קרובים</h2>
+            
+            <div class="concert-card">
+                <div>
+                    <h3>יצירות מופת של הבארוק</h3>
+                    <p><strong>תאריך:</strong> 15 באוגוסט, 2026 | 20:00</p>
+                    <p><strong>מיקום:</strong> אולם הקונצרטים, ירושלים</p>
+                </div>
+                <a href="https://www.eventbrite.com" target="_blank" class="ticket-btn">רכישת כרטיסים</a>
+            </div>
+
+            <div class="concert-card">
+                <div>
+                    <h3>ערב מוזיקה קאמרית</h3>
+                    <p><strong>תאריך:</strong> 5 בספטמבר, 2026 | 19:30</p>
+                    <p><strong>מיקום:</strong> הקונסרבטוריון, תל אביב</p>
+                </div>
+                <a href="#" class="ticket-btn">בקרוב</a>
+            </div>
+        </section>
+
+        <section id="media-he">
+            <h2>סרטונים ומדיה</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <section id="gallery-he">
+            <h2>גלריה</h2>
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=500" alt="הופעה">
+                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=500" alt="חזרה">
+                <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=500" alt="כלים">
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function setLanguage(lang) {
+            // Hide all content wrappers
+            document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('visible'));
+            // Remove active style from all language buttons
+            document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+            
+            // Show selected content and set active button
+            if (lang === 'he') {
+                document.getElementById('content-he').classList.add('visible');
+                document.querySelectorAll('.lang-btn')[1].classList.add('active');
+                document.getElementById('header-title').textContent = "שם האנסמבל";
+            } else {
+                document.getElementById('content-en').classList.add('visible');
+                document.querySelectorAll('.lang-btn')[0].classList.add('active');
+                document.getElementById('header-title').textContent = "Ensemble Name";
+            }
+        }
+    </script>
+
 </body>
 </html>
