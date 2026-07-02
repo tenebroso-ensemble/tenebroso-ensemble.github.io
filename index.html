@@ -152,7 +152,7 @@
 <body>
 
     <header>
-        <h1 id="header-title">Ensemble Name</h1>
+        <h1 id="header-title">Tenebroso Ensemble</h1>
         <div class="lang-switch">
             <button class="lang-btn active" onclick="setLanguage('en')">English</button>
             <button class="lang-btn" onclick="setLanguage('he')">עברית</button>
@@ -162,7 +162,7 @@
     <div id="content-en" class="container lang-section visible" lang="en">
         <section id="about-en">
             <h2>About the Ensemble</h2>
-            <p>Welcome to our ensemble's page. We are a dedicated group of musicians specializing in bringing vibrant historical and classical repertoires to life. Our performances blend rigorous musicological research with passionate, spontaneous performance energy.</p>
+            <p>Welcome to our ensemble's page. We are a dedicated group of musicians specializing in bringing vibrant Baroque repertoire to life. Our performances are filled with passionate performance energy.</p>
         </section>
 
         <section id="concerts-en">
@@ -190,7 +190,7 @@
         <section id="media-en">
             <h2>Videos & Media</h2>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/watch?v=L3ewv0xb4Tk" allowfullscreen></iframe>
             </div>
         </section>
 
@@ -207,7 +207,7 @@
     <div id="content-he" class="container lang-section" lang="he">
         <section id="about-he">
             <h2>אודות האנסמבל</h2>
-            <p>ברוכים הבאים לאתר האנסמבל שלנו. אנו קבוצת מוזיקאים המוקדשת לביצוע חי, תוסס ומרגש של רפרטואר היסטורי וקלאסי. ההופעות שלנו משלבות מחקר מוזיקלי מעמיק יחד עם אנרגיית ביצוע ספונטנית ורבת עוצמה.</p>
+            <p>.ברוכים הבאים לאתר האנסמבל שלנו. אנו קבוצת מוזיקאים המתמקצעת בביצוע תוסס ומרגש של רפרטואר מתקופת הבארוק</p>
         </section>
 
         <section id="concerts-he">
@@ -235,7 +235,7 @@
         <section id="media-he">
             <h2>סרטונים ומדיה</h2>
             <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/watch?v=L3ewv0xb4Tk" allowfullscreen></iframe>
             </div>
         </section>
 
@@ -260,11 +260,11 @@
             if (lang === 'he') {
                 document.getElementById('content-he').classList.add('visible');
                 document.querySelectorAll('.lang-btn')[1].classList.add('active');
-                document.getElementById('header-title').textContent = "שם האנסמבל";
+                document.getElementById('header-title').textContent = "אנסמבל טנברוסו";
             } else {
                 document.getElementById('content-en').classList.add('visible');
                 document.querySelectorAll('.lang-btn')[0].classList.add('active');
-                document.getElementById('header-title').textContent = "Ensemble Name";
+                document.getElementById('header-title').textContent = "Tenebroso Ensemble";
             }
         }
     </script>
